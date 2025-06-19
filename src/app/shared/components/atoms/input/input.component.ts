@@ -13,7 +13,7 @@ import { getFieldError, isRequired } from '../../../utils/form-erros';
 })
 export class InputComponent {
 
-  @Input() type: 'text' | 'number' | 'email' = 'text'
+  @Input() type: 'text' | 'number' | 'email' | 'password' = 'text'
   @Input() label!: string;
   @Input() placeholder: string = '';
   @Input() control: FormControl = new FormControl('');

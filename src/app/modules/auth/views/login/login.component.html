@@ -1,9 +1,21 @@
 <app-simple-card class="d-flex w-450">
-    <div class="w-100 d-flex flex-column p-16 gap-24">
-        <h1 class="fs-4">Login</h1>
+    <div class="w-100 d-flex flex-column gap-24">
+        <div class="w-100 d-flex px-16 py-24 box-sizing-border-box bg-neutral-whit border-bottom">
+            <h1 class="fs-2 fw-bold text-neutral-black">Login</h1>
+        </div>
 
-        <app-input [label]="'Email'" [placeholder]="'Escriba un correo electronico'" [type]="'email'"></app-input>
+        <div class="w-100 d-flex flex-column gap-24 px-16 box-sizing-border-box">
+            @for (item of inpustLogin; track $index) {
+                <app-input [label]="item.label"
+                        [type]="item.type" 
+                        [control]="longinForm.controls[item.formControlName] | formControl"></app-input>   
+            }
 
-        <app-button [label]="'Iniciar Sesión'" [color]="'confirm'" [typeAttribute]="'flat'"></app-button>
+            <app-button [label]="'Iniciar Sesión'" [color]="'confirm'" [typeAttribute]="'flat'"></app-button>
+        </div>
+
+        <div class="w-100 d-flex jutify-content-center p-16 box-sizing-border-box bg-neutral-whit border-top">
+            <a class="fs-7 fw-normal text-primary-blue text-center cursor-pointer">¿Necesita una cuenta? ¡Regístrate!</a>
+        </div>
     </div>
 </app-simple-card>

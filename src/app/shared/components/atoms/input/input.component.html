@@ -1,6 +1,6 @@
 <section class="w-100 d-flex flex-column gap-4">
     @if (label){
-        <label class="fs-6 fw-semibold d-flex flex-row gap-1 text-neutral-black">
+        <label class="fs-6 fw-semibold d-flex flex-row gap-4 text-neutral-black">
             {{label}}
             @if (isRequiredField){
                 <p class="text-red-warning">*</p>
@@ -11,7 +11,7 @@
     <input class="w-100 bg-transparent" [type]="type" [placeholder]="placeholder" [formControl]="control">
 
     @if (invalidField()) {
-        <p class="fs-6 fw-bold d-flex flex-row gap-1 text-red-warning">
+        <p class="fs-7 fw-normal d-flex flex-row gap-1 text-red-warning">
             {{ fieldError() }}
         </p>
     }
