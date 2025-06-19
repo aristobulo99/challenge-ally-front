@@ -7,6 +7,9 @@ import { InputsContent } from '../../../../shared/interfaces/input.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { passwordMatchValidator } from '../../../../shared/utils/form-validator';
+import { CreateUser, User } from '../../../../shared/interfaces/user.interface';
+import { LoadingService } from '../../../../shared/services/loading/loading.service';
+import { UserService } from '../../../../shared/services/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -61,10 +64,13 @@ export class SignUpComponent implements OnInit {
     ]
   ];
   protected formSignUp: FormGroup = new FormGroup({});
+  protected user!: User;
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService,
+    private userService: UserService
   ){}
 
   ngOnInit(): void {
@@ -84,6 +90,31 @@ export class SignUpComponent implements OnInit {
         validators: passwordMatchValidator
       }
     )
+  }
+
+  async onCreateUser(){
+    if(this.formSignUp.invalid) return;
+
+    this.loadingService.setControlLoading(true);
+
+    const userData: CreateUser = {
+      names: (this.formSignUp.get('name')?.value as string).trim().toUpperCase(),
+      lastNames: (this.formSignUp.get('lastName')?.value as string).trim().toUpperCase(),
+      email: (this.formSignUp.get('password')?.value as string).trim(),
+      password: (this.formSignUp.get('email')?.value as string).trim(),
+    }
+
+    try{
+      this.user = await this.userService.postUser(userData);
+    }catch(e){
+      console.warn(e);
+    }finally{
+      this.loadingService.setControlLoading(false);
+      if(this.user){
+        this.formSignUp.reset();
+        await this.onLogin();
+      }
+    }
   }
 
   async onLogin(): Promise<void>{
