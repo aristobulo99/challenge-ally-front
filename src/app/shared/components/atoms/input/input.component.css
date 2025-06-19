@@ -1,0 +1,39 @@
+
+.text-neutral-black{
+    color: var(--neutral-black);
+}
+
+.text-red-warning{
+    color: var(--red-warning);
+}
+
+.bg-transparent{
+    background-color: transparent;
+}
+
+input{
+    color: var(--neutral-black);
+    border-radius: 0.5rem;
+    border: 1px solid #C4C4C4;
+    height: 2.813rem;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+input::placeholder{
+    color: var(--grey-80);
+}
+
+input:focus-within {
+    border-color: rgb(25, 118, 210, 0.5);
+    box-shadow: 0 0 5px rgb(25, 118, 210, 0.5);
+}
+
+.py-14{
+    padding: 0.875rem 0;
+}

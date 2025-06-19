@@ -43,6 +43,18 @@ body{
     align-items: center;
 }
 
+.gap-4{
+    gap: 0.25rem;
+}
+
+.gap-8{
+    gap: 0.5rem;
+}
+
+.gap-16{
+    gap: 1rem;
+}
+
 .gap-24{
     gap: 1.5rem;
 }
