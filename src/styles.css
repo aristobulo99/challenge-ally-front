@@ -27,6 +27,22 @@ body{
     display: flex;
 }
 
+.flex-row{
+    flex-direction: row;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.jutify-content-center{
+    justify-content: center;
+}
+
+.aling-item-center{
+    align-items: center;
+}
+
 .vw-100{
     width: 100vw;;
 }
