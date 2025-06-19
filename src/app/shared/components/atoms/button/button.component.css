@@ -1,0 +1,31 @@
+.button-content:active{
+    opacity: 0.8;
+}
+
+.h-45{
+    height: 2.813rem;
+}
+
+.flat-confirm{
+    background-color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+    color: var(--neutral-white);
+}
+
+.flat-error{
+    background-color: var(--red-warning);
+    border: 1px solid var(--red-warning);
+    color: var(--neutral-white);
+}
+
+.stroked-confirm{
+    background-color: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.stroked-error{
+    background-color: transparent;
+    border: 1px solid var(--red-warning);
+    color: var(--red-warning);
+}

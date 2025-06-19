@@ -43,6 +43,10 @@ body{
     align-items: center;
 }
 
+.gap-24{
+    gap: 1.5rem;
+}
+
 .vw-100{
     width: 100vw;;
 }
@@ -65,6 +69,10 @@ body{
 
 .rounder-12{
     border-radius: 0.75rem;
+}
+
+.rounder-8{
+    border-radius: 0.5rem;
 }
 
 .p-16{
@@ -94,3 +102,24 @@ body{
 .fs-1{
     font-size: 2.25rem;
 }
+
+.fw-normal{
+    font-weight: normal;
+}
+
+.fw-semibold{
+    font-weight: 600;
+}
+
+.fw-bold{
+    font-weight: bold;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.opacity-25{
+    opacity: 0.25;
+}
+

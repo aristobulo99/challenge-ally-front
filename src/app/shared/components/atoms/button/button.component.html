@@ -1,0 +1,9 @@
+<button class="w-100 h-45 d-flex flex-row jutify-content-center aling-item-center fs-6 fw-normal rounder-8" 
+        [disabled]="disabled"
+        (click)="onClick()"
+        [ngClass]="[
+            disabled ? 'opacity-25' : 'cursor-pointer button-content',
+            getColorClass()
+        ]">
+    {{label}}
+</button>
