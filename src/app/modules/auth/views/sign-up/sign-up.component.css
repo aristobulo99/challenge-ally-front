@@ -1,0 +1,28 @@
+
+.w-450{
+    width: 34.375rem;
+}
+
+.text-neutral-black{
+    color: var(--neutral-black);
+}
+
+.text-primary-blue{
+    color: var(--primary-blue);
+}
+
+.bg-neutral-whit{
+    background-color: var(--neutral-white);
+}
+
+.border-bottom{
+    border-bottom: 1px solid var(--grey-80);
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}
+
+.border-top{
+    border-top: 1px solid var(--grey-80);
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+}

@@ -5,6 +5,7 @@ import { InputComponent } from '../../../../shared/components/atoms/input/input.
 import { InputsContent } from '../../../../shared/interfaces/input.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormControlPipe } from '../../../../shared/pipes/fomr-control.pipe';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,8 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -50,6 +52,10 @@ export class LoginComponent implements OnInit {
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       password: new FormControl<string>('', [Validators.required, Validators.minLength(6)])
     })
+  }
+
+  async onSingUp(){
+    await this.router.navigate(['auht/signUp'])
   }
 
 }

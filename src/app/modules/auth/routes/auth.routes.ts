@@ -11,6 +11,10 @@ export const AuthRoutes: Routes = [
                 loadComponent: () => import('../views/login/login.component').then(m => m.LoginComponent)
             },
             {
+                path: 'signUp',
+                loadComponent: () => import('../views/sign-up/sign-up.component').then(m => m.SignUpComponent)
+            },
+            {
                 path: '**',
                 redirectTo: 'login',
             }

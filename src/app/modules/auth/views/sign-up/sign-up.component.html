@@ -1,0 +1,25 @@
+<app-simple-card class="d-flex w-450">
+    <div class="w-100 d-flex flex-column gap-24">
+        <div class="w-100 d-flex px-16 py-24 box-sizing-border-box bg-neutral-whit border-bottom">
+            <h1 class="fs-2 fw-bold text-neutral-black">Crear Cuenta</h1>
+        </div>
+
+        <div class="w-100 d-flex flex-column gap-24 px-16 box-sizing-border-box">
+            @for (inputsItem of inputsFormSignUp; track $index) {
+                <div class="w-100 d-flex flex-row gap-16">
+                    @for (item of inputsItem; track $index) {
+                        <app-input class="w-100" [label]="item.label"
+                        [type]="item.type" 
+                        [control]="formSignUp.controls[item.formControlName] | formControl"></app-input>   
+                    }
+                </div>
+            }
+
+            <app-button [label]="'Crear cuenta'" [color]="'confirm'" [typeAttribute]="'flat'"></app-button>
+        </div>
+
+        <div class="w-100 d-flex jutify-content-center p-16 box-sizing-border-box bg-neutral-whit border-top">
+            <a class="fs-7 fw-normal text-primary-blue text-center cursor-pointer" (click)="onLogin()">¿Ya tienes una cuenta? Inicia sesión</a>
+        </div>
+    </div>
+</app-simple-card>
