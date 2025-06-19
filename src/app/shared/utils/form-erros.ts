@@ -21,6 +21,7 @@ export const getFieldError = (
     minlength: (error) => `Mínimo ${error.requiredLength} caracteres.`,
     maxlength: (error) => `Máximo ${error.requiredLength} caracteres.`,
     email: (error) => `El correo electrónico no es válido. Ejemplo: usuario@dominio.com`,
+    passwordMismatch: 'Las contraseñas no coinciden.'
   };
 
   const [errorKey, errorValue] = Object.entries(control.errors)[0];

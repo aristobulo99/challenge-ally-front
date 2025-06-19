@@ -4,8 +4,9 @@ import { InputComponent } from '../../../../shared/components/atoms/input/input.
 import { ButtonComponent } from '../../../../shared/components/atoms/button/button.component';
 import { FormControlPipe } from '../../../../shared/pipes/fomr-control.pipe';
 import { InputsContent } from '../../../../shared/interfaces/input.interface';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { passwordMatchValidator } from '../../../../shared/utils/form-validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -71,13 +72,18 @@ export class SignUpComponent implements OnInit {
   }
 
   initFormSignUp(): void {
-    this.formSignUp = this.fb.group({
-      name: new FormControl<string>(''),
-      lastName: new FormControl<string>(''),
-      password: new FormControl<string>(''),
-      confirmPassword: new FormControl<string>(''),
-      email: new FormControl<string>(''),
-    })
+    this.formSignUp = this.fb.group(
+      {
+        name: new FormControl<string>('', [Validators.required]),
+        lastName: new FormControl<string>('', [Validators.required]),
+        password: new FormControl<string>('', [Validators.required]),
+        confirmPassword: new FormControl<string>('', [Validators.required]),
+        email: new FormControl<string>('', [Validators.required, Validators.email]),
+      },
+      {
+        validators: passwordMatchValidator
+      }
+    )
   }
 
   async onLogin(): Promise<void>{
