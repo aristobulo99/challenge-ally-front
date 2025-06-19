@@ -10,6 +10,7 @@
                     @for (item of inputsItem; track $index) {
                         <app-input class="w-100" [label]="item.label"
                         [type]="item.type" 
+                        [placeholder]="item.placeholder"
                         [control]="formSignUp.controls[item.formControlName] | formControl"></app-input>   
                     }
                 </div>

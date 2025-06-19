@@ -7,8 +7,9 @@
         <div class="w-100 d-flex flex-column gap-24 px-16 box-sizing-border-box">
             @for (item of inpustLogin; track $index) {
                 <app-input [label]="item.label"
-                        [type]="item.type" 
-                        [control]="longinForm.controls[item.formControlName] | formControl"></app-input>   
+                           [placeholder]="item.placeholder"
+                           [type]="item.type" 
+                           [control]="longinForm.controls[item.formControlName] | formControl"></app-input>   
             }
 
             <app-button [label]="'Iniciar Sesión'" [color]="'confirm'" [typeAttribute]="'flat'"></app-button>

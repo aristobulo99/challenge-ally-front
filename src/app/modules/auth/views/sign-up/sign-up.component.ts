@@ -26,38 +26,38 @@ export class SignUpComponent implements OnInit {
       {
         type: 'text',
         label: 'Nombre',
-        placeholder: '',
+        placeholder: 'Ej. Juan',
         formControlName: 'name'
       },
       {
         type: 'text',
         label: 'Apellido',
-        placeholder: '',
+        placeholder: 'Ej. Pérez Gómez',
         formControlName: 'lastName'
       }
     ],
     [
       {
-        type: 'password',
-        label: 'Password',
-        placeholder: '',
-        formControlName: 'password'
-      },
-      {
-        type: 'password',
-        label: 'Confirm Password',
-        placeholder: '',
-        formControlName: 'confirmPassword'
+        type: 'email',
+        label: 'Correo electrónico',
+        placeholder: 'Ej. juan.perez@email.com',
+        formControlName: 'email'
       }
     ],
     [
       {
-        type: 'email',
-        label: 'Email',
-        placeholder: 'ejemplo@dominio.com',
-        formControlName: 'email'
+        type: 'password',
+        label: 'Contraseña',
+        placeholder: 'Mínimo 6 caracteres',
+        formControlName: 'password'
+      },
+      {
+        type: 'password',
+        label: 'Confirmar contraseña',
+        placeholder: 'Vuelve a escribir la contraseña',
+        formControlName: 'confirmPassword'
       }
-    ],
+    ]
   ];
   protected formSignUp: FormGroup = new FormGroup({});
 

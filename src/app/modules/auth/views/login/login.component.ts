@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
   protected inpustLogin: InputsContent[] = [
     {
       type: 'email',
-      label: 'Email',
-      placeholder: 'ejemplo@dominio.com',
+      label: 'Correo electrónico',
+      placeholder: 'Ej. juan.perez@email.com',
       formControlName: 'email'
     },
     {
       type: 'password',
-      label: 'Password',
-      placeholder: '',
+      label: 'Contraseña',
+      placeholder: 'Mínimo 6 caracteres',
       formControlName: 'password'
     },
   ];
