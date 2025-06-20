@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SpinnerComponent } from './shared/components/atoms/spinner/spinner.component';
 import { LoadingService } from './shared/services/loading/loading.service';
 import { ToastsCardComponent } from './shared/components/molecules/toasts-card/toasts-card.component';
+import { ToastsService } from './shared/services/toasts/toasts.service';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +19,16 @@ import { ToastsCardComponent } from './shared/components/molecules/toasts-card/t
 export class AppComponent {
 
   constructor(
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private toastsService: ToastsService
   ){}
 
   get _loading(): boolean {
     return this.loadingService.loading();
   }
 
-  get _toasts(): boolean {
-    return true;
+  get _toasts() {
+    return this.toastsService.toasts();
   }
 
 }

@@ -5,8 +5,9 @@
         </div>
     }
 
-    @if (_toasts) {
-        <app-toasts-card class="position-absolute" style="z-index: 1000; top: 2%; right: 1%;" [title]="'Prueba'" [message]="'Mensaje de prueba.'"></app-toasts-card>
+    @if (_toasts && _toasts.active) {
+        <app-toasts-card class="position-absolute" style="z-index: 2000; top: 2%; right: 1%;" 
+        [title]="_toasts.title" [message]="_toasts.message"></app-toasts-card>
     }
     <router-outlet style="z-index: 100;"/>
 </section>

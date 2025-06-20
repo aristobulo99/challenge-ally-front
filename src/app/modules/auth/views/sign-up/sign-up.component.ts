@@ -10,6 +10,7 @@ import { passwordMatchValidator } from '../../../../shared/utils/form-validator'
 import { CreateUser, User } from '../../../../shared/interfaces/user.interface';
 import { LoadingService } from '../../../../shared/services/loading/loading.service';
 import { UserService } from '../../../../shared/services/user/user.service';
+import { ToastsService } from '../../../../shared/services/toasts/toasts.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -70,7 +71,8 @@ export class SignUpComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private loadingService: LoadingService,
-    private userService: UserService
+    private userService: UserService,
+    private toastsService: ToastsService
   ){}
 
   ngOnInit(): void {
@@ -111,6 +113,13 @@ export class SignUpComponent implements OnInit {
     }finally{
       this.loadingService.setControlLoading(false);
       if(this.user){
+        this.toastsService.setControlToasts(
+          {
+            active: true,
+            duration: 3000,
+            message: `Creación de usuario ${this.user.email} exitoso`
+          }
+        );
         this.formSignUp.reset();
         await this.onLogin();
       }

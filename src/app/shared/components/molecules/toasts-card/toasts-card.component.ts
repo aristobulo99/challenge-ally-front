@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ToastsCardComponent {
 
-  @Input() title!: string;
-  @Input() message!: string;
+  @Input() title!: string | undefined;
+  @Input() message!: string | undefined;
   @Input() type: 'confirm' | 'warning' | 'error' = 'confirm';
 }
