@@ -80,7 +80,8 @@ export class LoginComponent implements OnInit {
           type: 'confirm',
           duration: 4000
         }
-      )
+      );
+      await this.router.navigate(['admin'])
     }catch(e){
       console.warn(e);
     }finally{
