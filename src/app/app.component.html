@@ -5,9 +5,15 @@
         </div>
     }
 
-    @if (_toasts && _toasts.active) {
-        <app-toasts-card class="position-absolute" style="z-index: 2000; top: 2%; right: 1%;" 
-        [title]="_toasts.title" [message]="_toasts.message"></app-toasts-card>
-    }
+    <div class="toast-card position-absolute"
+        [class.active]="_toasts && _toasts.active"
+        style="z-index: 2000; top: 2%; right: 1%;"
+    >
+        <app-toasts-card
+            [title]="_toasts?.title"
+            [message]="_toasts?.message"
+            [type]="_toasts?.type || 'confirm'"
+        ></app-toasts-card>
+    </div>
     <router-outlet style="z-index: 100;"/>
 </section>

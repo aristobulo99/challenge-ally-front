@@ -102,8 +102,8 @@ export class SignUpComponent implements OnInit {
     const userData: CreateUser = {
       names: (this.formSignUp.get('name')?.value as string).trim().toUpperCase(),
       lastNames: (this.formSignUp.get('lastName')?.value as string).trim().toUpperCase(),
-      email: (this.formSignUp.get('password')?.value as string).trim(),
-      password: (this.formSignUp.get('email')?.value as string).trim(),
+      email: (this.formSignUp.get('email')?.value as string).trim(),
+      password: (this.formSignUp.get('password')?.value as string).trim(),
     }
 
     try{
@@ -115,6 +115,7 @@ export class SignUpComponent implements OnInit {
       if(this.user){
         this.toastsService.setControlToasts(
           {
+            type: 'confirm',
             active: true,
             duration: 3000,
             message: `Creación de usuario ${this.user.email} exitoso`
