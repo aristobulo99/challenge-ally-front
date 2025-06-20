@@ -1,8 +1,12 @@
 <section class="position-relative">
     @if (_loading) {
         <div class="d-flex jutify-content-center aling-item-center vw-100 vh-100 position-absolute bg-neutral-black" style="z-index: 1000;">
-        <app-spinner></app-spinner>
-    </div>
+            <app-spinner/>
+        </div>
+    }
+
+    @if (_toasts) {
+        <app-toasts-card class="position-absolute" style="z-index: 1000; top: 2%; right: 1%;" [title]="'Prueba'" [message]="'Mensaje de prueba.'"></app-toasts-card>
     }
     <router-outlet style="z-index: 100;"/>
 </section>

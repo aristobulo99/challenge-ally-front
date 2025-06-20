@@ -1,0 +1,12 @@
+<section class="w-400 d-flex flex-column gap-8 p-16 rounder-12" [ngClass]="{
+    'bg-confirm': type == 'confirm',
+    'bg-warning': type == 'warning',
+    'bg-error': type == 'error',
+}">
+    @if (title) {
+        <h1 class="fs-4 fw-semibold">{{title}}</h1>
+    }
+    @if (message) {
+        <h6 class="fs-6 fw-normal">{{message}}</h6>
+    }
+</section>
