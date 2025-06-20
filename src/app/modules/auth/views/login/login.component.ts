@@ -6,6 +6,10 @@ import { InputsContent } from '../../../../shared/interfaces/input.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormControlPipe } from '../../../../shared/pipes/fomr-control.pipe';
 import { Router } from '@angular/router';
+import { LoginData, LoginToken } from '../../../../shared/interfaces/auth.interface';
+import { AuthService } from '../../../../shared/services/auth/auth.service';
+import { ToastsService } from '../../../../shared/services/toasts/toasts.service';
+import { LoadingService } from '../../../../shared/services/loading/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +44,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService,
+    private authService: AuthService,
+    private toastsService: ToastsService
   ){}
 
   ngOnInit(): void {
@@ -52,6 +59,33 @@ export class LoginComponent implements OnInit {
       email: new FormControl<string>('', [Validators.required, Validators.email]),
       password: new FormControl<string>('', [Validators.required, Validators.minLength(6)])
     })
+  }
+
+  async onLogin(){
+    if(this.longinForm.invalid) return;
+
+    const loginData: LoginData = {
+      email: (this.longinForm.get('email')?.value as string).trim(),
+      password: (this.longinForm.get('password')?.value as string).trim()
+    }
+
+    try{
+      this.loadingService.setControlLoading(true);
+      const resp: LoginToken = await this.authService.postLogin(loginData);
+      localStorage.setItem('token', resp.access_token);
+      this.toastsService.setControlToasts(
+        {
+          message: `Bienvenido ${loginData.email}`,
+          active: true,
+          type: 'confirm',
+          duration: 4000
+        }
+      )
+    }catch(e){
+      console.warn(e);
+    }finally{
+      this.loadingService.setControlLoading(false);
+    }
   }
 
   async onSingUp(){

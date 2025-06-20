@@ -12,7 +12,7 @@
                            [control]="longinForm.controls[item.formControlName] | formControl"></app-input>   
             }
 
-            <app-button [label]="'Iniciar Sesión'" [color]="'confirm'" [typeAttribute]="'flat'"></app-button>
+            <app-button [label]="'Iniciar Sesión'" [color]="'confirm'" [typeAttribute]="'flat'" [disabled]="longinForm.invalid" (onClickButton)="onLogin()"></app-button>
         </div>
 
         <div class="w-100 d-flex jutify-content-center p-16 box-sizing-border-box bg-neutral-whit border-top">
