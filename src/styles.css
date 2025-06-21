@@ -117,9 +117,18 @@ body{
     box-sizing: border-box;
 }
 
+.p-24{
+    padding: 1.5rem;
+}
+
 .px-16{
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.px-32{
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .py-24{

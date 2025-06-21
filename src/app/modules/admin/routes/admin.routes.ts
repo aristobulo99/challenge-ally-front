@@ -7,6 +7,15 @@ export const AdminRoutes: Routes = [
         path: 'admin',
         component: AdminLayoutComponent,
         canActivate: [authGuard],
-        children: []
+        children: [
+            {
+                path: 'usuarios',
+                loadComponent: () => import('../views/users/users.component').then(m => m.UsersComponent)
+            },
+            {
+                path: '**',
+                redirectTo: 'usuarios'
+            }
+        ]
     }
 ]
