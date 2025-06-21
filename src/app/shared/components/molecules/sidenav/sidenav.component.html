@@ -1,0 +1,9 @@
+<div class="sidenav">
+    @for (item of menuItems; track $index) {
+        <a class="fs-6 fw-semibold" [routerLink]="item.route" 
+           routerLinkActive="active" 
+           [routerLinkActiveOptions]="{ exact: true }">
+           {{item.label}}
+        </a>
+    }
+</div>
