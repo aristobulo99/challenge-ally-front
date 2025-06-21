@@ -1,0 +1,19 @@
+<!-- app.component.html -->
+<table class="custom-table">
+  <thead>
+    <tr>
+        @for (column of columns; track $index) {
+            <th>{{column}}</th>
+        }
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of data; track $index) {
+        <tr>
+            @for (column of columns; track $index) {
+                <td>{{item[column]}}</td>
+            }
+        </tr>   
+    }
+  </tbody>
+</table>
