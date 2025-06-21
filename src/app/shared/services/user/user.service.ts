@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environments';
-import { CreateUser, User } from '../../interfaces/user.interface';
+import { CreateUser, User, Users } from '../../interfaces/user.interface';
 import { lastValueFrom } from 'rxjs';
 
 @Injectable({
@@ -18,6 +18,12 @@ export class UserService {
   async postUser(userData: CreateUser): Promise<User>{
     return await lastValueFrom(
       this.http.post<User>(`${this.url}/user/add-user`, userData)
+    )
+  }
+
+  async getAllUser(): Promise<Users[]>{
+    return await lastValueFrom(
+      this.http.get<Users[]>(`${this.url}/user/all-users`)
     )
   }
 }

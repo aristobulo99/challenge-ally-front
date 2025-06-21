@@ -11,3 +11,12 @@ export interface User extends CreateUser {
     createDate: Date;
     updateDate: Date;
 }
+
+export interface UserLogins {
+    loginCreate: Date,
+    ipAdress: string
+}
+
+export interface Users extends User {
+    userLogins?: UserLogins
+}

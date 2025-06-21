@@ -40,7 +40,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   if (isApiUrl && token) {
     const request = req.clone({
       headers: req.headers
-        .set('Authorization', token)
+        .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json')
     });
     return next(request).pipe(catchError(handleError));

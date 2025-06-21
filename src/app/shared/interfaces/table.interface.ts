@@ -1,5 +1,5 @@
 
 
 export interface DataTableContent {
-    [key: string] : string | number | boolean | Date
+    [key: string] : string | number | boolean | Date | undefined | null
 }
