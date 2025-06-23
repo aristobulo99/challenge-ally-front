@@ -6,3 +6,7 @@
 .border-1-white{
     border: 0.063rem solid white;
 }
+
+.shadows-regular{
+    box-shadow: 0 4px 6px -1px var(--grey-80);
+}

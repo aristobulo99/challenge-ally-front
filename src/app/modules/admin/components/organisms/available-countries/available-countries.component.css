@@ -1,0 +1,17 @@
+a:hover{
+    background-color: rgb(25, 118, 210,0.2);
+    border-radius: 0.063rem;
+    cursor: pointer;
+}
+
+.w-50{
+    width: 3.125rem;
+}
+
+.h-50{
+    height: 3.125rem;
+} 
+
+.rounder-circle{
+    border-radius: 100%;
+}

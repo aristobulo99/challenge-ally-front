@@ -112,6 +112,10 @@ body{
     border-radius: 0.5rem;
 }
 
+.p-8{
+    padding: 0.5rem;
+}
+
 .p-16{
     padding: 1rem;
     box-sizing: border-box;

@@ -1,0 +1,29 @@
+.w-50{
+    width: 3.125rem;
+}
+
+.h-50{
+    height: 3.125rem;
+}
+
+.rounder-circle{
+    border-radius: 100%;
+}
+
+.text-neutral-black{
+    color: var(--neutral-black);
+}
+
+.text-primary-blue{
+    color: var(--primary-blue);
+}
+
+.bg-neutral-whit{
+    background-color: var(--neutral-white);
+}
+
+.border-bottom{
+    border-bottom: 1px solid #7575753e;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+}

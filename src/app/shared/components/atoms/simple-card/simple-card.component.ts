@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-simple-card',
@@ -11,5 +11,5 @@ import { Component } from '@angular/core';
   styleUrl: './simple-card.component.css'
 })
 export class SimpleCardComponent {
-
+  @Input() shadows: 'regular' | 'none' = 'none';
 }
