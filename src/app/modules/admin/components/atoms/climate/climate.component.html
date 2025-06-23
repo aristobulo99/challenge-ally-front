@@ -1,0 +1,5 @@
+<div class="w-100 d-flex flex-row aling-item-center gap-24 p-16 box-sizing-border-box">
+    <img [src]="currentData?.current?.condition?.icon" alt="icono-estado_clima">
+
+    <p class="fs-7 fw-semibold text-grey-80">{{currentData?.current?.temp_c}}° C <br> {{currentData?.current?.condition?.text}}</p>
+</div>
