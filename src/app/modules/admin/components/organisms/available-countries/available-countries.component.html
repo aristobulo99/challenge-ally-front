@@ -1,6 +1,6 @@
 <div class="w-100 d-flex flex-column gap-16 p-16 box-sizing-border-box">
         @for (countrie of conuntries; track $index) {
-        <a class="w-100 d-flex flex-row aling-item-center gap-24 p-8 box-sizing-border-box">
+        <a class="w-100 d-flex flex-row aling-item-center gap-24 p-8 box-sizing-border-box" (click)="onSelectionCountrie(countrie)">
             <img class="w-50 h-50 rounder-circle" [src]="countrie.flags.svg" alt="icono_bandera">
 
             <p class="fs-6 text-neutral-black fw-semibold">{{countrie.name.common}}</p>

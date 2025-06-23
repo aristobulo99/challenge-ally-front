@@ -11,9 +11,16 @@ export class CountriesService {
   private controlCountries: WritableSignal<Country[]> = signal([]);
   public countries: Signal<Country[]> = computed(() => this.controlCountries());
 
+  private controlSelectionCountrie: WritableSignal<Country | undefined> = signal(undefined);
+  public selectionCountrie: Signal<Country | undefined> = computed(() => this.controlSelectionCountrie());
+
   constructor(
     private http: HttpClient
   ) { }
+
+  setControlSelection(valeu: Country | undefined){
+    this.controlSelectionCountrie.set(valeu);
+  }
 
   async getThreeCountries(): Promise<void>{
     try {

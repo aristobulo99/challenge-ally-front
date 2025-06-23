@@ -20,4 +20,8 @@ export class AvailableCountriesComponent {
       this.conuntries = this.countriesService.countries()
     })
   }
+
+  onSelectionCountrie(countrie: Country){
+    this.countriesService.setControlSelection(countrie);
+  }
 }
