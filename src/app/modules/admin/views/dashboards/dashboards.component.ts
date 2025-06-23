@@ -7,6 +7,7 @@ import { LoadingService } from '../../../../shared/services/loading/loading.serv
 import { SelectedCountryComponent } from '../../components/atoms/selected-country/selected-country.component';
 import { WeatherapiService } from '../../services/weatherapi/weatherapi.service';
 import { ClimateComponent } from "../../components/atoms/climate/climate.component";
+import { HourComponent } from "../../components/atoms/hour/hour.component";
 
 @Component({
   selector: 'app-dashboards',
@@ -15,7 +16,8 @@ import { ClimateComponent } from "../../components/atoms/climate/climate.compone
     DashboardsCardComponent,
     AvailableCountriesComponent,
     SelectedCountryComponent,
-    ClimateComponent
+    ClimateComponent,
+    HourComponent
 ],
   templateUrl: './dashboards.component.html',
   styleUrl: './dashboards.component.css'
