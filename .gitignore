@@ -1,5 +1,12 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# Variables de entorno
+.env
+.env.dev
+.env.prod
+.env.qa
+src/environments/environments.ts
+
 # Compiled output
 /dist
 /tmp

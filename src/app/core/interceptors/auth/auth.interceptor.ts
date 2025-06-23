@@ -4,9 +4,11 @@ import { catchError, throwError } from 'rxjs';
 import { inject } from '@angular/core';
 import { ToastsService } from '../../../shared/services/toasts/toasts.service';
 import { ToastsContent } from '../../../shared/interfaces/tosts.interface';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const toasts = inject(ToastsService);
+  const auth = inject(AuthService)
 
   const token = localStorage.getItem('token');
   const isApiUrl = req.url.startsWith(environment.urlBack);
@@ -14,6 +16,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const handleError = (e: any) => {
     let msg = 'Ha ocurrido un error';
     let type: 'confirm' | 'warning' | 'error' = 'warning';
+
+    if(e.status === 401){
+      auth.logout();
+    }
 
     if (e.status >= 400 && e.status < 500) type = 'warning';
     else if (e.status >= 500) type = 'error';
