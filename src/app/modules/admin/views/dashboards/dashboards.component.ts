@@ -4,13 +4,16 @@ import { DashboardsCardComponent } from "../../components/molecules/dashboards-c
 import { AvailableCountriesComponent } from '../../components/organisms/available-countries/available-countries.component';
 import { Country } from '../../interfaces/countries.interface';
 import { LoadingService } from '../../../../shared/services/loading/loading.service';
+import { SelectedCountryComponent } from '../../components/atoms/selected-country/selected-country.component';
+import { WeatherapiService } from '../../services/weatherapi/weatherapi.service';
 
 @Component({
   selector: 'app-dashboards',
   standalone: true,
   imports: [
     DashboardsCardComponent,
-    AvailableCountriesComponent
+    AvailableCountriesComponent,
+    SelectedCountryComponent
 ],
   templateUrl: './dashboards.component.html',
   styleUrl: './dashboards.component.css'
@@ -21,10 +24,14 @@ export class DashboardsComponent implements OnInit {
 
   constructor(
     private countriesService: CountriesService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private weatherapiService: WeatherapiService
   ){
     effect(() => {
       this.countrie = this.countriesService.selectionCountrie();
+      if(this.countrie){
+        queueMicrotask(() => this.getweatherCurrent());
+      }
     })
   }
 
@@ -32,6 +39,19 @@ export class DashboardsComponent implements OnInit {
     this.loadingService.setControlLoading(true);
     await this.countriesService.getThreeCountries();
     this.loadingService.setControlLoading(false);
+  }
+
+  async getweatherCurrent(){
+    if(!this.countrie) return;
+    
+    try {
+      this.loadingService.setControlLoading(true);
+      await this.weatherapiService.getCurrent(this.countrie.name.common)
+    }catch(e) {
+      console.warn(e);
+    }finally{
+      this.loadingService.setControlLoading(false);
+    }
   }
 
 }

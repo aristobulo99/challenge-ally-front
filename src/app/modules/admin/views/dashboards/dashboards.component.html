@@ -3,10 +3,13 @@
         <app-available-countries></app-available-countries>
     </app-dashboards-card>
     @if (countrie) {
-        <app-dashboards-card class="w-300" [title]="'PAÍS SELECCIONADO'"></app-dashboards-card>
+        <app-dashboards-card class="w-300" [title]="'PAÍS SELECCIONADO'">
+            <app-selected-country/>
+        </app-dashboards-card>
 
         <div class="d-flex flex-column gap-24">
-            <app-dashboards-card class="w-300" [title]="'CLIMA'"></app-dashboards-card>
+            <app-dashboards-card class="w-300" [title]="'CLIMA'">
+            </app-dashboards-card>
 
             <app-dashboards-card class="w-300" [title]="'HORA'"></app-dashboards-card>
 
