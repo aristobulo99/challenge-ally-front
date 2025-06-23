@@ -9,12 +9,16 @@ export const AdminRoutes: Routes = [
         canActivate: [authGuard],
         children: [
             {
+                path: 'dashboards',
+                loadComponent: () => import('../views/dashboards/dashboards.component').then(m => m.DashboardsComponent)
+            },
+            {
                 path: 'usuarios',
                 loadComponent: () => import('../views/users/users.component').then(m => m.UsersComponent)
             },
             {
                 path: '**',
-                redirectTo: 'usuarios'
+                redirectTo: 'dashboards'
             }
         ]
     }
